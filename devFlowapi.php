@@ -1,0 +1,23 @@
+Route::get('/automations/bucket/{id}/objects','AutomationsController@getAutomationBucketObjects');
+        Route::get('/automations/{id}/object-actions','AutomationsController@getObjectActions');
+        Route::get('/automations/{id}/objects','AutomationsController@getAutomationBucketObjectsPerAutomation');
+        Route::get('object-actions/hostname/{hostname}', 'ObjectActionsController@getHostnameNextAction');
+        Route::get('/object-classes', 'ObjectClassesController@index');
+        Route::get('object/hostname/{hostname}', 'ObjectsController@getObjectByHostname');
+        Route::get('objects/actions/{id}', 'ObjectsController@getActions');
+        Route::get('objects/customer/{id}', 'ObjectsController@getObjectsByCustomer');
+        Route::get('objects/environment/{id}', 'ObjectsController@getObjectsByEnvironment');
+        Route::get('objects/site/{id}', 'ObjectsController@getObjectsBySite');
+        Route::get('objects/sites/{id}', 'ObjectsController@getObjectsBySites');
+        Route::get('/object-types', 'ObjectTypesController@index');
+        Route::post('/automations/bucket/{id}/objects','AutomationsController@updateAutomationBucketObjects');
+        Route::post('/automations/objects/{id}/skip','AutomationsController@skipAutomationBucketObject');
+        Route::put('object/action/{action}/', 'ObjectActionsController@update');
+        Route::put('object/action/{action}/', 'ObjectActionsController@updatev1'); //LEGACY, TO BE DEPRICATED
+        Route::put('object/hostname/{hostname}/attribute', 'ObjectsController@putHostnameAttribute');
+        Route::put('/v2/object-actions/{id}/mark-complete','ObjectActionsController@markObjectActionComplete');
+        Route::put('/v2/object-actions/{id}/retry','ObjectActionsController@retryObjectAction');
+        Route::put('/v2/object-actions/{id}/skip','ObjectActionsController@skipObjectAction');
+        Route::resource('ingest-objects', 'IngestObjectsController');
+        Route::resource('object-actions', 'ObjectActionsController');
+        Route::resource('objects', 'ObjectsController');
